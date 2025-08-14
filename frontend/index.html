@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHI_7 Quizzy - Professional Quiz Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>MAHI_7 Quizzy</h1>
+            </div>
+            <p class="tagline">Professional Knowledge Assessment Platform</p>
+        </header>
+
+        <div id="start-screen" class="screen active">
+            <div class="welcome-card">
+                <h2><i class="fas fa-user-circle"></i> Welcome to MAHI_7 Quizzy</h2>
+                <div class="form-group">
+                    <label for="user-name">Full Name</label>
+                    <input type="text" id="user-name" placeholder="Enter your full name" required>
+                    <span class="error-msg" id="name-error"></span>
+                </div>
+                <div class="quiz-info">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>5 Minutes</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>5 Questions</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Instant Results</span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn-primary" onclick="startQuiz()">
+                        <i class="fas fa-play"></i> Start Quiz
+                    </button>
+                    <button class="btn-secondary" onclick="showLeaderboard()">
+                        <i class="fas fa-chart-line"></i> Leaderboard
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="question-counter">Question 1 of 5</span>
+                </div>
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer-display">05:00</span>
+                </div>
+            </div>
+            <div class="question-card">
+                <h2 id="question-text"></h2>
+                <div class="options">
+                    <button class="option" onclick="selectAnswer('a')" id="option-a"></button>
+                    <button class="option" onclick="selectAnswer('b')" id="option-b"></button>
+                    <button class="option" onclick="selectAnswer('c')" id="option-c"></button>
+                    <button class="option" onclick="selectAnswer('d')" id="option-d"></button>
+                </div>
+                <div class="quiz-controls">
+                    <button id="next-btn" class="btn-primary" onclick="nextQuestion()" disabled>
+                        <span id="next-text">Next Question</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <div class="result-card">
+                <div class="result-icon">
+                    <i class="fas fa-trophy" id="result-trophy"></i>
+                </div>
+                <h2>Quiz Complete!</h2>
+                <div id="score-display"></div>
+                <div class="result-stats" id="result-stats"></div>
+                <div class="button-group">
+                    <button class="btn-primary" onclick="restartQuiz()">
+                        <i class="fas fa-redo"></i> Retake Quiz
+                    </button>
+                    <button class="btn-secondary" onclick="showLeaderboard()">
+                        <i class="fas fa-chart-line"></i> View Leaderboard
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="leaderboard-screen" class="screen">
+            <div class="leaderboard-card">
+                <h2><i class="fas fa-trophy"></i> Top Performers</h2>
+                <div class="leaderboard-filters">
+                    <button class="filter-btn active" onclick="filterLeaderboard('all')">All Time</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('today')">Today</button>
+                </div>
+                <div id="leaderboard-list"></div>
+                <button class="btn-secondary" onclick="showStartScreen()">
+                    <i class="fas fa-arrow-left"></i> Back to Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
