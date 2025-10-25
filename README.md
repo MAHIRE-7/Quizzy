@@ -1,4 +1,6 @@
 # MAHI_7 Quizzy - 3-Tier Quiz Application
+# MAHI_7 Quizzy - 3-Tier Quiz Application
+# MAHI_7 Quizzy - 3-Tier Quiz Application
 
 
 A complete 3-tier architecture quiz application built with Node.js and MySQL.
